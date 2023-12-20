@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: 0;
+    box-sizing: border-box;
+    font-family: cuyabra-Regular;
+}
+
+@font-face {
+    font-family: cuyabra-Regular;
+    src: url(/src/font/cuyabra-Regular.ttf);
+}
+
+:root {
+    --lightdark: rgb(32 32 35);
+    --dark: rgb(24 24 27);
+    --white: rgb(256 256 256);
+    --grey: rgb(79 79 79);
+    --graylogo: rgb(207 204 201);
+}
+
+body {
+    padding: 12px 0;
+    background-color: var(--dark);
+}
+
+.bg-menu {
+    background-color: var(--graylogo);
+    padding: 0 13% 0 13%;
+}
+
+.bg-menu>a {
+    width: 100%;
+    transition: 0.3s all;
+    text-align: center;
+}
+
+.bg-menu>a:hover {
+    transition: 0.3s all;
+    background-color: var(--white);
+}
