@@ -1,7 +1,8 @@
 <script setup>
-import HomePage from './pages/HomePage.vue';
+import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
-  <HomePage></HomePage>
+  <NavBar></NavBar>
+  <router-view></router-view>
 </template>

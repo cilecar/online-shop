@@ -25,13 +25,14 @@
 }
 
 body {
-    padding: 12px 0;
+    padding: 8px 0;
     background-color: var(--dark);
 }
 
 .bg-menu {
     background-color: var(--graylogo);
     padding: 0 13% 0 13%;
+    
 }
 
 .bg-menu>a {

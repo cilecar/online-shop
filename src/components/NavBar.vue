@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <nav class="flex justify-between">
+    <nav class="flex justify-between px-2">
 
         <!-- logo and name -->
         <div class="flex items-center">
@@ -40,7 +40,7 @@
 
     <!-- menu -->
     <div class="flex h-11 m-auto mt-2 bg-menu text-xl">
-        <router-link :to="{ path: `catalog` }"><a>Каталог</a></router-link>
+        <router-link :to="{ path: `catalog` }"><div><a>Каталог</a></div></router-link>
         <router-link :to="{ path: `about`}"><a>О нас</a></router-link>
         <router-link :to="{ path: `partners`}"><a>Партнерам</a></router-link>
         <router-link :to="{ path: `customers`}"><a>Покупателям</a></router-link>
