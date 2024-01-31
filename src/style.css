@@ -32,16 +32,23 @@ body {
 .bg-menu {
     background-color: var(--graylogo);
     padding: 0 13% 0 13%;
-    
+    height: 40px;
+    gap: 5px;
 }
 
 .bg-menu>a {
     width: 100%;
     transition: 0.3s all;
+    float: none;
     text-align: center;
+    padding: 5px 0 5px 0;
 }
 
 .bg-menu>a:hover {
     transition: 0.3s all;
     background-color: var(--white);
+}
+
+.bg-menu>li>a {
+
 }

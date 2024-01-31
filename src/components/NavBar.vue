@@ -39,13 +39,13 @@
     </nav>
 
     <!-- menu -->
-    <div class="flex h-11 m-auto mt-2 bg-menu text-xl">
-        <router-link :to="{ path: `catalog` }"><div><a>Каталог</a></div></router-link>
-        <router-link :to="{ path: `about`}"><a>О нас</a></router-link>
-        <router-link :to="{ path: `partners`}"><a>Партнерам</a></router-link>
-        <router-link :to="{ path: `customers`}"><a>Покупателям</a></router-link>
-        <router-link :to="{ path: `documents`}"><a>Документы</a> </router-link>
-        <router-link :to="{ path: `contacts`}"><a>Контакты</a></router-link>
-    </div>
+    <nav class="flex m-auto mt-2 bg-menu text-xl justify-between">
+        <router-link :to="{ path: `catalog` }">Каталог</router-link>
+        <router-link :to="{ path: `about` }">О нас</router-link>
+        <router-link :to="{ path: `partners` }">Партнерам</router-link>
+        <router-link :to="{ path: `customers` }">Покупателям</router-link>
+        <router-link :to="{ path: `documents` }">Документы</router-link>
+        <router-link :to="{ path: `contacts` }">Контакты</router-link>
+    </nav>
     <!-- /menu -->
 </template>
