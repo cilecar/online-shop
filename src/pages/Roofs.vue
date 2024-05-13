@@ -3,8 +3,8 @@ import { RoofingCorrugatedBoard, MetalTiles } from '../../data';
 </script>
 
 <template>
-    <main class="text-center mt-3 px-2">
-        <h1 class="text-white text-3xl">Каталог кровли</h1>
+    <main class="text-center mt-3 px-2" style="flex: 1;">
+        <h1 class="text-white text-3xl font-bold">Каталог кровли</h1>
         <div>
             <h1 class="text-white text-2xl text-left border-b border-solid border-white">Профнастил</h1>
             <div class="flex flex-wrap mt-3 gap-3">

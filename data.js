@@ -204,4 +204,107 @@ export const MetalTiles = [
       img7: "/src/img/roofs/Supermonterray Metal Tile/7.jpg",
     },
   },
+];
+
+export const Certificates = [
+  {
+    id: 1,
+    img: "/src/img/Certificates/1.jpg"
+  },
+  {
+    id: 2,
+    img: "/src/img/Certificates/2.jpg"
+  },
+  {
+    id: 3,
+    img: "/src/img/Certificates/3.jpg"
+  },
+  {
+    id: 4,
+    img: "/src/img/Certificates/4.jpg"
+  },
+  {
+    id: 5,
+    img: "/src/img/Certificates/5.jpg"
+  },
+  {
+    id: 6,
+    img: "/src/img/Certificates/6.jpg"
+  },
+  {
+    id: 7,
+    img: "/src/img/Certificates/7.jpg"
+  },
+  {
+    id: 8,
+    img: "/src/img/Certificates/8.jpg"
+  },
+  {
+    id: 9,
+    img: "/src/img/Certificates/9.jpg"
+  },
+  {
+    id: 10,
+    img: "/src/img/Certificates/10.jpg"
+  },
+  {
+    id: 11,
+    img: "/src/img/Certificates/11.jpg"
+  },
+  {
+    id: 12,
+    img: "/src/img/Certificates/12.jpg"
+  },
+  {
+    id: 13,
+    img: "/src/img/Certificates/13.jpg"
+  },
+  {
+    id: 14,
+    img: "/src/img/Certificates/14.jpg"
+  },
+  {
+    id: 15,
+    img: "/src/img/Certificates/15.jpg"
+  },
+  {
+    id: 16,
+    img: "/src/img/Certificates/16.jpg"
+  },
+  {
+    id: 17,
+    img: "/src/img/Certificates/17.jpg"
+  },
+  {
+    id: 18,
+    img: "/src/img/Certificates/18.jpg"
+  },
+  {
+    id: 19,
+    img: "/src/img/Certificates/19.jpg"
+  },
+  {
+    id: 20,
+    img: "/src/img/Certificates/20.jpg"
+  },
+  {
+    id: 21,
+    img: "/src/img/Certificates/21.jpg"
+  },
+  {
+    id: 22,
+    img: "/src/img/Certificates/22.jpg"
+  },
+  {
+    id: 23,
+    img: "/src/img/Certificates/23.jpg"
+  },
+  {
+    id: 24,
+    img: "/src/img/Certificates/24.jpg"
+  },
+  {
+    id: 25,
+    img: "/src/img/Certificates/25.jpg"
+  },
 ]

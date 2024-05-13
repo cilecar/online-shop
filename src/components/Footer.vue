@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <main class="py-5 mt-2 footer">
+    <main class="py-5 footer mt-3">
         <div class="flex justify-center gap-12">
             <div class="flex gap-2">
                 <img src="../img/map-pin-regular-24.png" alt="">

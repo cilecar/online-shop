@@ -40,12 +40,12 @@
 
     <!-- menu -->
     <nav class="flex m-auto mt-2 bg-menu text-xl justify-between">
-        <router-link :to="{ path: `roofs` }">Кровля</router-link>
-        <router-link :to="{ path: `about` }">О нас</router-link>
-        <router-link :to="{ path: `partners` }">Партнерам</router-link>
-        <router-link :to="{ path: `customers` }">Покупателям</router-link>
-        <router-link :to="{ path: `documents` }">Документы</router-link>
-        <router-link :to="{ path: `contacts` }">Контакты</router-link>
+        <router-link :to="{ path: `/roofs` }">Кровля</router-link>
+        <router-link :to="{ path: `/about` }">О нас</router-link>
+        <router-link :to="{ path: `/partners` }">Партнерам</router-link>
+        <router-link :to="{ path: `/customers` }">Покупателям</router-link>
+        <router-link :to="{ path: `/documents` }">Документы</router-link>
+        <router-link :to="{ path: `/contacts` }">Контакты</router-link>
     </nav>
     <!-- /menu -->
     
