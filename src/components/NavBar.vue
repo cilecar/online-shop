@@ -3,11 +3,11 @@
 </script>
 
 <template>
-    <nav class="flex justify-between px-2">
+    <nav class="flex justify-between p-2">
 
         <!-- logo and name -->
         <div class="flex items-center">
-            <router-link :to="{ path: `home` }">
+            <router-link :to="{ name: `home` }">
                 <img class="h-24" src="../img/logo.png" alt="">
             </router-link>
             <div class="text-white text-3xl h-fit">
@@ -40,7 +40,7 @@
 
     <!-- menu -->
     <nav class="flex m-auto mt-2 bg-menu text-xl justify-between">
-        <router-link :to="{ path: `catalog` }">Каталог</router-link>
+        <router-link :to="{ path: `roofs` }">Кровля</router-link>
         <router-link :to="{ path: `about` }">О нас</router-link>
         <router-link :to="{ path: `partners` }">Партнерам</router-link>
         <router-link :to="{ path: `customers` }">Покупателям</router-link>
@@ -48,4 +48,5 @@
         <router-link :to="{ path: `contacts` }">Контакты</router-link>
     </nav>
     <!-- /menu -->
+    
 </template>
