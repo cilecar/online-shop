@@ -101,7 +101,7 @@ export const RoofingCorrugatedBoard = [
 
 export const MetalTiles = [
   {
-    id: 1,
+    id: 5,
     ItemName: "Металлочерепица",
     name: "Металлочерепица «Каскад»",
     price: 437,
@@ -127,7 +127,7 @@ export const MetalTiles = [
     },
   },
   {
-    id: 2,
+    id: 6,
     ItemName: "Металлочерепица",
     name: "Металлочерепица Дюна 25",
     price: 452,
@@ -154,7 +154,7 @@ export const MetalTiles = [
     },
   },
   {
-    id: 3,
+    id: 7,
     ItemName: "Металлочерепица",
     name: "Металлочерепица Дюна 35",
     price: 472,
@@ -179,7 +179,7 @@ export const MetalTiles = [
     },
   },
   {
-    id: 4,
+    id: 8,
     ItemName: "Металлочерепица",
     name: "Металлочерепица Супермонтеррей",
     price: 690,

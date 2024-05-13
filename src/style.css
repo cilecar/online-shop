@@ -56,3 +56,7 @@ body {
     background-color: var(--lightdark);
     width: 24.3%;
 }
+
+.item-specifications {
+    background-color: var(--lightdark);
+}
