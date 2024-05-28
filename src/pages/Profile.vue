@@ -1,17 +1,26 @@
 <template>
-    <div>
-      <h1>Profile</h1>
-      <form @submit.prevent="updateProfile">
-        <input type="text" v-model="fullName" placeholder="Full Name" />
-        <input type="date" v-model="birthdate" placeholder="Birthdate" />
-        <input type="text" v-model="phoneNumber" placeholder="Phone Number" />
-        <button type="submit">Save</button>
+    <div class="max-w-md mx-auto mt-8">
+      <h1 class="text-3xl font-bold mb-4 text-white text-center">Профиль</h1>
+      <form @submit.prevent="updateProfile" class="space-y-3">
+        <div>
+          <label for="fullName" class="block text-xl font-medium text-gray-50">ФИО:</label>
+          <input type="text" v-model="fullName" id="fullName" placeholder="Full Name" class="mt-1 p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+        </div>
+        <div>
+          <label for="birthdate" class="block text-xl font-medium text-gray-50">Дата рождения:</label>
+          <input type="date" v-model="birthdate" id="birthdate" placeholder="Birthdate" class="mt-1 p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+        </div>
+        <div>
+          <label for="phoneNumber" class="block text-xl font-medium text-gray-50">Номер телефона:</label>
+          <input type="text" v-model="phoneNumber" id="phoneNumber" placeholder="Phone Number" class="mt-1 p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+        </div>
+        <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Сохранить</button>
       </form>
-      <p v-if="error">{{ error }}</p>
-      <p v-if="success">{{ success }}</p>
+      <p v-if="error" class="text-red-500">{{ error }}</p>
+      <p v-if="success" class="text-green-500">{{ success }}</p>
   
-      <!-- Добавленная кнопка "Выход" -->
-      <button @click="logout">Выход</button>
+      <!-- Кнопка "Выход" -->
+      <button @click="logout" class="mt-4 w-full py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600">Выйти из аккаунта</button>
     </div>
   </template>
   
@@ -53,12 +62,43 @@
           this.error = error.message;
         }
       },
-      async logout() {
-        // Очищаем токен из localStorage
+      async updateProfile() {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          this.error = 'Unauthorized';
+          return;
+        }
+  
+        try {
+          const response = await fetch('http://localhost:3000/api/user', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+              fullName: this.fullName,
+              birthdate: this.birthdate,
+              phoneNumber: this.phoneNumber
+            })
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.error);
+          }
+          this.success = 'Обновление данных профиля успешны';
+          this.error = '';
+        } catch (error) {
+          this.error = error.message;
+          this.success = '';
+        }
+      },
+      logout() {
         localStorage.removeItem('token');
-        // Перенаправляем пользователя на страницу входа или куда-то еще
-        // В данном случае перенаправляем на главную страницу
         this.$router.push('/');
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       }
     }
   };

@@ -1,5 +1,11 @@
 <script setup>
+import { useRouter } from 'vue-router';
 
+// Получаем объект роутера
+const router = useRouter();
+
+// Создаем реактивную переменную для отслеживания статуса авторизации
+const isAuthenticated = !!localStorage.getItem('token');
 </script>
 
 <template>
@@ -46,7 +52,9 @@
         <router-link :to="{ path: `/customers` }">Покупателям</router-link>
         <router-link :to="{ path: `/documents` }">Документы</router-link>
         <router-link :to="{ path: `/contacts` }">Контакты</router-link>
+        <!-- Используем реактивную переменную для отображения кнопки -->
+        <router-link v-if="!isAuthenticated" :to="{ path: `/register` }">Зарегистрироваться</router-link>
+        <router-link v-else :to="{ path: `/profile` }">Профиль</router-link>
     </nav>
     <!-- /menu -->
-    
 </template>

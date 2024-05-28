@@ -1,13 +1,19 @@
 <template>
-  <div>
-    <h1>Login</h1>
-    <form @submit.prevent="login">
-      <input type="email" v-model="email" placeholder="Email" required />
-      <input type="password" v-model="password" placeholder="Password" required />
-      <button type="submit">Login</button>
+  <div class="max-w-md mx-auto mt-8">
+    <h1 class="text-3xl font-bold mb-4 text-white text-center">Авторизация</h1>
+    <form @submit.prevent="login" class="space-y-3">
+      <div>
+        <label for="email" class="block text-xl font-medium text-gray-50">Почта:</label>
+        <input type="email" v-model="email" id="email" autocomplete="email" required class="mt-1 p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+      <div>
+        <label for="password" class="block text-xl font-medium text-gray-50">Пароль:</label>
+        <input type="password" v-model="password" id="password" autocomplete="current-password" required class="mt-1 p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+      <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Авторизоваться</button>
     </form>
-    <p v-if="error">{{ error }}</p>
-    <p v-if="user">Welcome, {{ user.name }}!</p>
+    <p v-if="error" class="text-red-500">{{ error }}</p>
+    <p v-if="user" class="text-green-500">Welcome, {{ user.name }}!</p>
   </div>
 </template>
 
@@ -40,13 +46,19 @@ export default {
         localStorage.setItem('token', data.token);
         this.error = '';
 
-        // Проверка токена
-        this.verifyToken();
+        // Перенаправление на главную страницу
+        this.$router.push('/');
+        
+        // Задержка перед перезагрузкой страницы (1 секунда)
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       } catch (error) {
         console.error('Error during login:', error);
         this.error = error.message;
       }
     },
+
     async verifyToken() {
       const token = localStorage.getItem('token');
       try {

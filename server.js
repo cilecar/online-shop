@@ -73,6 +73,22 @@ app.get('/api/user', async (req, res) => {
   }
 });
 
+// Обработчик для обновления профиля пользователя
+app.put('/api/user', async (req, res) => {
+  const { fullName, birthdate, phoneNumber } = req.body;
+  const token = req.headers.authorization.split(' ')[1];
+  if (!token) {
+    return res.status(401).send({ error: 'Unauthorized' });
+  }
+  try {
+    const payload = jwt.verify(token, jwtSecret);
+    const user = await User.findByIdAndUpdate(payload.userId, { fullName, birthdate, phoneNumber }, { new: true });
+    res.send(user);
+  } catch (error) {
+    res.status(401).send({ error: 'Unauthorized' });
+  }
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
