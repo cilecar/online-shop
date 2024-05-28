@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
     <main class="py-5 footer mt-3">
         <div class="flex justify-center gap-12">

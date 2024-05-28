@@ -1,6 +1,6 @@
 <template>
     <main class="text-white text-xl m-3 flex gap-3">
-        <img class="rounded-md" src="/src/img/dileram.jpg" alt="">
+        <img class="rounded-md h-full" src="/src/img/dileram.jpg" alt="">
         <div>
             <h1 class="text-3xl font-bold text-center">Здравствуй, будущий партнер!</h1>
             <p>Компания ВИК нацелена на расширение своей дилерской сети и на заключение новых партнёрских отношений. Основными преимуществами нашей компании являются:</p>

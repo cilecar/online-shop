@@ -45,7 +45,7 @@ const isAuthenticated = !!localStorage.getItem('token');
     </nav>
 
     <!-- menu -->
-    <nav class="flex m-auto mt-2 bg-menu text-xl justify-between">
+    <nav class="flex m-auto mt-2 bg-menu text-xl justify-between w-full">
         <router-link :to="{ path: `/roofs` }">Кровля</router-link>
         <router-link :to="{ path: `/about` }">О нас</router-link>
         <router-link :to="{ path: `/partners` }">Партнерам</router-link>

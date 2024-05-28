@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-md mx-auto mt-8">
+  <div class="min-w-80 mx-auto mt-8">
     <h1 class="text-3xl font-bold mb-4 text-white text-center">Регистрация</h1>
     <form @submit.prevent="register" class="space-y-3">
       <div>

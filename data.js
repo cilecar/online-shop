@@ -303,8 +303,4 @@ export const Certificates = [
     id: 24,
     img: "/src/img/Certificates/24.jpg"
   },
-  {
-    id: 25,
-    img: "/src/img/Certificates/25.jpg"
-  },
 ]
