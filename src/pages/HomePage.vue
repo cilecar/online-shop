@@ -14,10 +14,5 @@
                 </video>
             </div>
         </div>
-        <div class="text-white text-xl mt-8 flex flex-wrap gap-2">
-            <div>
-
-            </div>
-        </div>
     </main>
 </template>
