@@ -8,6 +8,9 @@
       <button type="submit">Register</button>
     </form>
     <p v-if="error">{{ error }}</p>
+
+    <!-- Добавленная кнопка "Уже зарегистрированы? Войти" -->
+    <button @click="goToLogin">Уже зарегистрированы? Войти</button>
   </div>
 </template>
 
@@ -41,6 +44,10 @@ export default {
         console.error('Error during registration:', error);
         this.error = error.message;
       }
+    },
+    goToLogin() {
+      // Перенаправление пользователя на страницу входа
+      this.$router.push('/login');
     }
   }
 };

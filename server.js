@@ -2,19 +2,21 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import cors from 'cors';  // Импортируем пакет cors
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
-
-// Настраиваем CORS
 app.use(cors());
 
 const userSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
-  password: String
+  password: String,
+  birthdate: Date,
+  fullName: String,
+  phoneNumber: String
 });
+
 const User = mongoose.model('User', userSchema);
 
 mongoose.connect('mongodb://127.0.0.1:27017/myapp', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -35,7 +37,7 @@ app.post('/api/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
-    console.log('User registered:', user);  // Лог добавлен
+    console.log('User registered:', user);
     res.status(201).send({ message: 'User registered successfully' });
   } catch (error) {
     console.error('Error registering user:', error);
@@ -65,7 +67,7 @@ app.get('/api/user', async (req, res) => {
   try {
     const payload = jwt.verify(token, jwtSecret);
     const user = await User.findById(payload.userId);
-    res.send({ id: user._id, name: user.name, email: user.email });
+    res.send(user);
   } catch (error) {
     res.status(401).send({ error: 'Unauthorized' });
   }

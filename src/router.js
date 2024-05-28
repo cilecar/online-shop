@@ -10,6 +10,7 @@ import ItemPage from './pages/ItemPage.vue'
 import Login from './pages/Login.vue'
 import Register from "./pages/Register.vue"
 import store from "/store"
+import Profile from "./pages/Profile.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,16 +23,9 @@ const router = createRouter({
     { path: '/customers', name: 'customers', component: Customers },
     { path: '/documents', name: 'documents', component: Documents },
     { path: '/contacts', name: 'contacts', component: Contacts },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login,
-    },
-    {
-      path: '/register',
-      name: 'Register',
-      component: Register,
-    },
+    { path: '/login', name: 'Login', component: Login },
+    { path: '/register', name: 'Register', component: Register },
+    { path: '/profile', name: 'Profile', component: Profile },
     { 
       path: '/protected', 
       name: 'Protected', 
