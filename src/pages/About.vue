@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
     <main class="px-3">
         <div class="text-white text-xl mt-4 flex gap-3">
