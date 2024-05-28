@@ -18,8 +18,6 @@
       </form>
       <p v-if="error" class="text-red-500">{{ error }}</p>
       <p v-if="success" class="text-green-500">{{ success }}</p>
-  
-      <!-- Кнопка "Выход" -->
       <button @click="logout" class="mt-4 w-full py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600">Выйти из аккаунта</button>
     </div>
   </template>
@@ -42,7 +40,7 @@
       async loadProfile() {
         const token = localStorage.getItem('token');
         if (!token) {
-          this.error = 'Unauthorized';
+          this.error = 'Вы неавторизованны';
           return;
         }
         try {
@@ -65,7 +63,7 @@
       async updateProfile() {
         const token = localStorage.getItem('token');
         if (!token) {
-          this.error = 'Unauthorized';
+          this.error = 'Вы неавторизованны';
           return;
         }
   
