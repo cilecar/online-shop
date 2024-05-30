@@ -5,7 +5,8 @@
                 <h1 class="text-3xl font-bold">Краснодар центральный офис</h1>
                 <div class="flex gap-2">
                     <img src="../img/map-pin-regular-24.png" alt="">
-                    <a href="https://yandex.ru/maps/-/CDqgaK9G" target="_blank" class="text-white text-xl">г.Краснодар, ул. Ростовское шоссе, д. 66</a>
+                    <a href="https://yandex.ru/maps/-/CDqgaK9G" target="_blank" class="text-white text-xl">г.Краснодар,
+                        ул. Ростовское шоссе, д. 66</a>
                 </div>
                 <div class="flex gap-2">
                     <img src="../img/phone-regular-24.png" alt="">
@@ -26,7 +27,8 @@
                 <h1 class="text-3xl font-bold">Склад Ставрополь</h1>
                 <div class="flex gap-2">
                     <img src="../img/map-pin-regular-24.png" alt="">
-                    <a href="https://yandex.ru/maps/-/CDb7B65J" target="_blank" class="text-white text-xl">Ставропольский край, г. Ставрополь, ул. 4 Промышленная 7</a>
+                    <a href="https://yandex.ru/maps/-/CDb7B65J" target="_blank"
+                        class="text-white text-xl">Ставропольский край, г. Ставрополь, ул. 4 Промышленная 7</a>
                 </div>
                 <div class="flex gap-2">
                     <img src="../img/phone-regular-24.png" alt="">
@@ -46,7 +48,8 @@
                 <h1 class="text-3xl font-bold">Склад Волгоград</h1>
                 <div class="flex gap-2">
                     <img src="../img/map-pin-regular-24.png" alt="">
-                    <a href="https://yandex.ru/maps/-/CDb7BKzd" target="_blank" class="text-white text-xl">Волгоградская область, г. Волгоград, 25 октября, д. 1Д</a>
+                    <a href="https://yandex.ru/maps/-/CDb7BKzd" target="_blank" class="text-white text-xl">Волгоградская
+                        область, г. Волгоград, 25 октября, д. 1Д</a>
                 </div>
                 <div class="flex gap-2">
                     <img src="../img/phone-regular-24.png" alt="">
@@ -67,7 +70,8 @@
                 <h1 class="text-3xl font-bold">Склад Минеральные воды</h1>
                 <div class="flex gap-2">
                     <img src="../img/map-pin-regular-24.png" alt="">
-                    <a href="https://yandex.ru/maps/-/CDb7BSoh" target="_blank" class="text-white text-xl">Ставропольский край, г. Минеральные Воды, ул. Островского, 64а</a>
+                    <a href="https://yandex.ru/maps/-/CDb7BSoh" target="_blank"
+                        class="text-white text-xl">Ставропольский край, г. Минеральные Воды, ул. Островского, 64а</a>
                 </div>
                 <div class="flex gap-2">
                     <img src="../img/phone-regular-24.png" alt="">

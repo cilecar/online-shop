@@ -2,18 +2,23 @@
   <div class="flex justify-center items-center h-screen">
     <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
       <h1 class="text-3xl font-bold mb-4  text-center">Авторизация</h1>
-    <form @submit.prevent="login" class="space-y-3">
-      <div>
-        <label for="email" class="block text-xl font-medium">Почта:</label>
-        <input type="email" v-model="email" id="email" autocomplete="email" required class="mt-1 p-2 w-full bg-gray-300 border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
-      </div>
-      <div>
-        <label for="password" class="block text-xl font-medium">Пароль:</label>
-        <input type="password" v-model="password" id="password" autocomplete="current-password" required class="mt-1 p-2 w-full bg-gray-300 border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
-      </div>
-      <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Авторизоваться</button>
-      <button @click="goToReg" class="block w-full py-2 px-4 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 mt-4">Еще не зарегистрированы Зарегистрироваться</button>
-    </form>
+      <form @submit.prevent="login" class="space-y-3">
+        <div>
+          <label for="email" class="block text-xl font-medium">Почта:</label>
+          <input type="email" v-model="email" id="email" autocomplete="email" required
+            class="mt-1 p-2 w-full bg-gray-300 border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+        </div>
+        <div>
+          <label for="password" class="block text-xl font-medium">Пароль:</label>
+          <input type="password" v-model="password" id="password" autocomplete="current-password" required
+            class="mt-1 p-2 w-full bg-gray-300 border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+        </div>
+        <button type="submit"
+          class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Авторизоваться</button>
+        <button @click="goToReg"
+          class="block w-full py-2 px-4 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 mt-4">Еще не
+          зарегистрированы Зарегистрироваться</button>
+      </form>
     </div>
   </div>
 </template>
@@ -47,10 +52,8 @@ export default {
         localStorage.setItem('token', data.token);
         this.error = '';
 
-        // Перенаправление на главную страницу
         this.$router.push('/');
-        
-        // Задержка перед перезагрузкой страницы (1 секунда)
+
         setTimeout(() => {
           window.location.reload();
         }, 500);
@@ -73,7 +76,7 @@ export default {
           throw new Error(data.error);
         }
         console.log('Current user:', data);
-        this.user = data; // Обновите информацию о пользователе
+        this.user = data;
       } catch (error) {
         console.error('Error verifying token:', error);
         this.error = error.message;
@@ -85,7 +88,6 @@ export default {
     }
   },
   created() {
-    // Проверка токена при загрузке компонента
     const token = localStorage.getItem('token');
     if (token) {
       this.verifyToken();

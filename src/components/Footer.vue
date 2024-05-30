@@ -3,7 +3,8 @@
         <div class="flex justify-center gap-12">
             <div class="flex gap-2">
                 <img src="../img/map-pin-regular-24.png" alt="">
-                <a href="https://yandex.ru/maps/-/CDqgaK9G" target="_blank" class="text-white text-xl">г.Краснодар, ул. Ростовское шоссе, д. 66</a>
+                <a href="https://yandex.ru/maps/-/CDqgaK9G" target="_blank" class="text-white text-xl">г.Краснодар, ул.
+                    Ростовское шоссе, д. 66</a>
             </div>
 
             <div class="flex gap-2">

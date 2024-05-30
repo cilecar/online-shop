@@ -60,7 +60,8 @@ body {
     width: 24.3%;
 }
 
-.certificates, .aboutHP {
+.certificates,
+.aboutHP {
     width: 24.5%;
 }
 
@@ -76,7 +77,55 @@ body {
     width: 100%;
     height: auto;
 }
-.swiper-slide{
+
+.swiper-slide {
     display: flex !important;
     justify-content: center;
+}
+
+.cart-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkout-button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.checkout-button.bg-blue-500:hover {
+    background-color: darkblue;
+}
+
+.img-equal-height {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    flex-shrink: 0;
 }
