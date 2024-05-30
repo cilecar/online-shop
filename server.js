@@ -46,14 +46,14 @@ app.post("/api/register", async (req, res) => {
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).send({ error: "User already exists" });
+      return res.status(400).send({ error: "Пользователь уже зарегистрирован" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
     console.log("User registered:", user);
-    res.status(201).send({ message: "User registered successfully" });
+    res.status(201).send({ message: "Пользователь успешно зарегистрирован" });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).send({ error: "Internal server error" });
@@ -64,11 +64,11 @@ app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
   if (!user) {
-    return res.status(400).send({ error: "Invalid credentials" });
+    return res.status(400).send({ error: "Пользователь не найден или данные для входа неверные" });
   }
   const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
-    return res.status(400).send({ error: "Invalid credentials" });
+    return res.status(400).send({ error: "Пользователь не найден или данные для входа неверные" });
   }
   const token = jwt.sign({ userId: user._id }, jwtSecret, { expiresIn: "1h" });
   res.send({ token });

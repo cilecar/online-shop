@@ -1,7 +1,7 @@
 <template>
     <div class="p-3 text-white flex">
         <div class="overflow-x-hidden w-2/3">
-            <p class="font-bold text-2xl text-center">{{ currentItem.ItemName }}</p>
+            <p class="font-bold text-2xl text-center">{{ currentItem.name }}</p>
             <div class="swiper-container" ref="swiper">
                 <div class="swiper-wrapper">
                     <div v-for="(img, index) in currentItem.img" :key="index" class="swiper-slide">
@@ -17,7 +17,7 @@
                 <h1 class="text-2xl font-bold">Описание товара:</h1>
                 <p>{{ currentItem.description }}</p>
             </div>
-            <div>
+            <div v-if="currentItem.note && Object.keys(currentItem.note).length > 0">
                 <h1 class="text-2xl font-bold">Примечание:</h1>
                 <p>{{ currentItem.note }}</p>
             </div>
@@ -100,18 +100,14 @@ onMounted(() => {
 });
 
 const addToCart = (item) => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    router.push('/register');
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const existingItem = cart.find(cartItem => cartItem.id === item.id);
+  if (existingItem) {
+    existingItem.quantity += 1;
   } else {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingItem = cart.find(cartItem => cartItem.id === item.id);
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({ ...item, quantity: 1 });
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
+    cart.push({ ...item, quantity: 1 });
   }
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
+
 </script>

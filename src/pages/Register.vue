@@ -53,7 +53,6 @@ export default {
         if (!response.ok) {
           throw new Error(data.error);
         }
-        console.log('Registration successful:', data);
         this.$router.push('/login');
       } catch (error) {
         console.error('Error during registration:', error);
