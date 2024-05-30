@@ -17,7 +17,18 @@ const userSchema = new mongoose.Schema({
   phoneNumber: String
 });
 
+const orderSchema = new mongoose.Schema({
+  userId: mongoose.Schema.Types.ObjectId,
+  fullName: String,
+  phoneNumber: String,
+  email: String,
+  items: Array,
+  totalAmount: Number,
+  orderDate: { type: Date, default: Date.now }
+});
+
 const User = mongoose.model('User', userSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 mongoose.connect('mongodb://127.0.0.1:27017/myapp', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
@@ -33,7 +44,7 @@ app.post('/api/register', async (req, res) => {
     if (existingUser) {
       return res.status(400).send({ error: 'User already exists' });
     }
-    
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
@@ -56,39 +67,60 @@ app.post('/api/login', async (req, res) => {
     return res.status(400).send({ error: 'Invalid credentials' });
   }
   const token = jwt.sign({ userId: user._id }, jwtSecret, { expiresIn: '1h' });
-  res.send({ token, user: { id: user._id, name: user.name, email: user.email } });
+  res.send({ token });
 });
 
 app.get('/api/user', async (req, res) => {
-  const token = req.headers.authorization.split(' ')[1];
+  const token = req.headers.authorization?.split(' ')[1];
   if (!token) {
     return res.status(401).send({ error: 'Unauthorized' });
   }
   try {
-    const payload = jwt.verify(token, jwtSecret);
-    const user = await User.findById(payload.userId);
+    const decoded = jwt.verify(token, jwtSecret);
+    const user = await User.findById(decoded.userId).select('-password');
     res.send(user);
   } catch (error) {
     res.status(401).send({ error: 'Unauthorized' });
   }
 });
 
-// Обработчик для обновления профиля пользователя
 app.put('/api/user', async (req, res) => {
-  const { fullName, birthdate, phoneNumber } = req.body;
-  const token = req.headers.authorization.split(' ')[1];
+  const token = req.headers.authorization?.split(' ')[1];
   if (!token) {
     return res.status(401).send({ error: 'Unauthorized' });
   }
   try {
-    const payload = jwt.verify(token, jwtSecret);
-    const user = await User.findByIdAndUpdate(payload.userId, { fullName, birthdate, phoneNumber }, { new: true });
-    res.send(user);
+    const decoded = jwt.verify(token, jwtSecret);
+    const updatedUser = await User.findByIdAndUpdate(decoded.userId, req.body, { new: true }).select('-password');
+    res.send(updatedUser);
+  } catch (error) {
+    res.status(401).send({ error: 'Unauthorized' });
+  }
+});
+
+app.post('/api/orders', async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) {
+    return res.status(401).send({ error: 'Unauthorized' });
+  }
+  try {
+    const decoded = jwt.verify(token, jwtSecret);
+    const user = await User.findById(decoded.userId);
+    const order = new Order({
+      userId: user._id,
+      fullName: user.fullName,
+      phoneNumber: user.phoneNumber,
+      email: user.email,
+      items: req.body.items,
+      totalAmount: req.body.totalAmount
+    });
+    await order.save();
+    res.status(201).send(order);
   } catch (error) {
     res.status(401).send({ error: 'Unauthorized' });
   }
 });
 
 app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+  console.log('Server is running on http://localhost:3000');
 });

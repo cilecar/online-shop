@@ -55,6 +55,7 @@ const isAuthenticated = !!localStorage.getItem('token');
         <!-- Используем реактивную переменную для отображения кнопки -->
         <router-link v-if="!isAuthenticated" :to="{ path: `/register` }">Зарегистрироваться</router-link>
         <router-link v-else :to="{ path: `/profile` }">Профиль</router-link>
+        <router-link :to="{ path: `/cart` }">Корзина</router-link>
     </nav>
     <!-- /menu -->
 </template>

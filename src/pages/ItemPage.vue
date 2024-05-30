@@ -55,7 +55,7 @@
             </div>
             <div class="w-full">
                 <h1 class="text-2xl font-bold text-center">Цена от {{ currentItem.price }} р.</h1>
-                <button class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Добавить в корзину</button>
+                <button @click="addToCart(currentItem)" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Добавить в корзину</button>
             </div>
         </div>
 
@@ -66,37 +66,54 @@
 import { defineProps, ref, onMounted } from 'vue';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { RoofingCorrugatedBoard, MetalTiles } from '../../data';
 
 const route = useRoute();
+const router = useRouter();
 const currentItem = ref(null);
 
 const findItemById = (id) => {
-    const allItems = [...RoofingCorrugatedBoard, ...MetalTiles];
-    const itemId = parseInt(id);
-    const foundItem = allItems.find(item => item.id === itemId);
-    return foundItem;
+  const allItems = [...RoofingCorrugatedBoard, ...MetalTiles];
+  const itemId = parseInt(id);
+  const foundItem = allItems.find(item => item.id === itemId);
+  return foundItem;
 };
 
 currentItem.value = findItemById(route.params.id);
 
 onMounted(() => {
-    const swiper = new Swiper('.swiper-container', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 10,
-    });
-    swiper.update();
+  const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    spaceBetween: 10,
+  });
+  swiper.update();
 });
+
+const addToCart = (item) => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    router.push('/register');
+  } else {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ ...item, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+};
 </script>
 
 <style>
