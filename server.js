@@ -31,7 +31,7 @@ const User = mongoose.model("User", userSchema);
 const Order = mongoose.model("Order", orderSchema);
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/myapp", {
+  .connect("mongodb+srv://mrcraboytm:mrcrabo1989@cluster0.mpxhujx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
