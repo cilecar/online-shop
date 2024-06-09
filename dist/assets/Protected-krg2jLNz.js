@@ -1,0 +1,1 @@
+import{_ as r,m as a,o as t,c as s,t as o,a as c,b as n}from"./index-RBindyaY.js";const _={computed:{...a(["getUser"]),user(){return this.getUser}}},d=n("h1",null,"Protected Page",-1),u={key:0};function m(l,p,i,f,h,e){return t(),s("div",null,[d,e.user?(t(),s("p",u,"Welcome, "+o(e.user.name),1)):c("",!0)])}const k=r(_,[["render",m]]);export{k as default};
