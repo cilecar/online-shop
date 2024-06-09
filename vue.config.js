@@ -1,3 +1,6 @@
 module.exports = {
-    publicPath: '/${{ online-shop }}/'
-}
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '/online-shop/'  // замените 'имя-репозитория' на название вашего репозитория
+      : '/'
+  }
+  
